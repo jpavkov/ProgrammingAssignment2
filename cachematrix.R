@@ -1,16 +1,33 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-## This is changed.
+## function makeCacheMatrix creates an object that returns a list. the object contains a matrix which
+## is a part of the object upon instantiation.
 
 makeCacheMatrix <- function(x = matrix()) {
-
-}
-
-
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        ## creates the object
+        set <- function(y) {
+                x <<- y
+                im <<- NULL
+        }
+        
+        im <- NULL
+        
+        ## retrieves the matrix upon calling the object
+        get <- function() { 
+                x 
+        }  
+        
+        # sets the inverse
+        setinverse <- function(solve)  { 
+                im <<- solve 
+        }
+        
+        ## if the inverse is already calculated, returns the precalculated number
+        getinverse <- function() { 
+                im 
+        } 
+        
+        list(set = set,
+             get = get,          
+             setinverse = setinverse, 
+             getinverse = getinverse) 
+        
 }
